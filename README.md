@@ -4,15 +4,14 @@ Automation to keep the repositories I've forked up to date. Most times I will fo
 If you'd like to use this automation, fork this project, and change the values in the [forks](forks) file to match the forks you want to keep in sync with upstream.
 
 ```bash
-
+REPO_OWNER=mathew-fleisch && while read -r line; do repo=$(echo "$line" | awk '{print $1}' | cut -d '/' -f 2); echo "https://github.com/$REPO_OWNER/$repo"; done < forks
 ```
 
+## Trigger GitHub Action via Curl
 
-
-
-
-
-
-
-
-
+```bash
+GIT_TOKEN=xxx \
+  && REPO_OWNER=mathew-fleisch \
+  && REPO_NAME=fork-syncer \
+  && ./trigger.sh
+```
