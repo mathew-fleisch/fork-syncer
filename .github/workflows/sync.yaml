@@ -1,7 +1,7 @@
 name: Sync Fork
 
 on:
-  workflow_dispatch:
+  repository_dispatch:
     types:
       - fork-syncer
   # schedule:
